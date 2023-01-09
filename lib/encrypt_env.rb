@@ -88,7 +88,7 @@ class EncryptEnv
   end
 
   private_class_method def self.to_hash_type(raw_data)
-    HashWithIndifferentAccess.new(::YAML.load(raw_data, aliases: true))
+    HashWithIndifferentAccess.new(::YAML.safe_load(raw_data, aliases: true))
   end
 
   private_class_method def self.load_encrypted_data(env = nil)
